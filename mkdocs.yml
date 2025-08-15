@@ -1,0 +1,5 @@
+site_name: NealGuo
+theme:
+  name: material
+nav:
+  - 首页: index.md
