@@ -1,5 +1,74 @@
 site_name: NealGuo
+copyright: "Copyright © 2025 Neal Guo"
+
 theme:
   name: material
+  logo: images/logo.png 
+  favicon: images/logo.png   
+  palette: 
+    # Palette toggle for light mode
+        - media: "(prefers-color-scheme)"
+          toggle:
+            icon: material/link
+            name: Switch to light mode
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+            icon: material/toggle-switch
+            name: Switch to dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          primary: black
+          accent: indigo
+          toggle:
+            icon: material/toggle-switch-off
+            name: Switch to system preference
+  hero:
+    image: docs/images/hero-bg.png
+    alt: "Background"
+    height: 400px  
+
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.top
+    - navigation.tabs
+    - navigation.footer
+    - navigation.indexes
+  custom_dir: docs/overrides
 nav:
-  - 首页: index.md
+  - Home: index.md
+  - CS: 
+    - a: blog/index.md
+    - b: blog/index.md
+  - PI: 
+    - c: oil/index.md
+  # - 石油: 
+  #   - c: blog/index.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/weixin
+      # link: https://s1.imagehub.cc/images
+      link: https://weixin.qq.com/
+      name: Wechat
+    - icon: fontawesome/brands/github
+      link: https://github.com
+      name: Github
+    - icon: fontawesome/regular/envelope     
+      link: https://mail.qq.com
+      name: Email
+    # link: https://social/@email
+
+  generator: false #是否删除页脚显示“使用 MkDocs 材料制造”
+  markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+    - abbr
+    - attr_list
+    - admonition
+    - def_list
+    - footnotes
+    - md_in_html
+extra_css:
+  - styles/extra.css
