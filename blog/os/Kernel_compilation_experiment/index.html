@@ -12,7 +12,7 @@
         <link rel="prev" href="../../..">
       
       
-        <link rel="next" href="../../">
+        <link rel="next" href="../../oil/CNOOC_history/">
       
       
       <link rel="icon" href="../../../images/logo.png">
@@ -282,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../oil/PI_research_1/" class="md-tabs__link">
+        <a href="../../oil/CNOOC_history/" class="md-tabs__link">
           
   
   
@@ -382,10 +382,6 @@
       
         
       
-        
-          
-        
-      
     
     
     
@@ -403,9 +399,8 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -414,14 +409,8 @@
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
@@ -581,13 +570,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      独立编译
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       给内核打补丁
     </span>
@@ -610,8 +608,6 @@
     </li>
   
 
-              
-            
               
             
           </ul>
@@ -673,12 +669,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oil/PI_research_1/" class="md-nav__link">
+      <a href="../../oil/CNOOC_history/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    石油行业学习
+    CNOOC
     
   </span>
   
@@ -794,13 +790,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      独立编译
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       给内核打补丁
     </span>
@@ -828,7 +833,7 @@
 
 <div class="admonition abstract">
 <p class="admonition-title">⚡ AI摘要 (GLM)</p>
-<p>本文档介绍了TLinux内核编译实验，包括熟悉内核编译环境、代码结构，以及如何编译内核和编写简单的内核模块。实验涉及编译进内核、独立编译等模式，并展示了如何添加模块代码、修改Makefile和Kconfig文件，以及如何给内核打补丁。</p>
+<p>本文档介绍了TLinux内核编译实验，包括熟悉内核编译、观察内核代码结构、编译内核、编写简单的内核模块（编译进内核、独立编译）以及给内核打补丁。实验过程中使用了Git、menuconfig、kconfig等工具，并涉及模块签名、Makefile配置等操作。</p>
 </div>
 <h2 id="_1">熟悉内核编译</h2>
 <p>了解menuconfig，kconfig等。了解内核代码树结构。</p>
@@ -916,6 +921,73 @@ menu &quot;CPU/Task time and stats accounting&quot;
 <a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/2142.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/2142.png" /></a>
 <a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/2143.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/2143.png" /></a></p>
 </li>
+<li>
+<p>删掉grub的这一行（防止固化）</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># vim /boot/grub2/grubenv #删掉saved_entry=这一行</span>
+<span class="c1">#GRUB Environment Block</span>
+<span class="nv">saved_entry</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">kernelopts</span><span class="o">=</span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>5d6283fe-cde6-459f-810c-88c92336a6d5<span class="w"> </span>ro<span class="w"> </span>quiet<span class="w"> </span><span class="nv">elevator</span><span class="o">=</span>noopp
+<span class="nv">console</span><span class="o">=</span>ttyS0,115200<span class="w"> </span><span class="nv">console</span><span class="o">=</span>tty0<span class="w"> </span>vconsole.keymap<span class="o">=</span>us<span class="w"> </span><span class="nv">crashkernel</span><span class="o">=</span>1800M-64G:256MM
+,64G-128G:512M,128G-:768M<span class="w"> </span>vconsole.font<span class="o">=</span>latarcyrheb-sun16<span class="w"> </span>i8042.noaux<span class="w"> </span>net.ifnamee
+<span class="nv">s</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">biosdevname</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>intel_idle.max_cstate<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">intel_pstate</span><span class="o">=</span>disable<span class="w"> </span><span class="nv">iommu</span><span class="o">=</span>pt<span class="w"> </span>amd_iommm
+<span class="nv">u</span><span class="o">=</span>on
+<span class="nv">boot_success</span><span class="o">=</span><span class="m">0</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>make -j8</code> <code>make modules_install</code> <code>make install</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># make -j8</span>
+scripts/kconfig/conf<span class="w">  </span>--syncconfig<span class="w"> </span>Kconfig
+<span class="w">  </span>CALL<span class="w">    </span>scripts/checksyscalls.sh
+<span class="w">  </span>CALL<span class="w">    </span>scripts/atomic/check-atomics.sh
+<span class="w">  </span>DESCEND<span class="w">  </span>objtool
+<span class="w">  </span>DESCEND<span class="w">  </span>bpf/resolve_btfids
+<span class="w">  </span>CHK<span class="w">     </span>include/generated/compile.h
+<span class="w">  </span>AR<span class="w">      </span>kernel/rue/built-in.a
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/rue_main.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/cpu_qos.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/io_qos.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/net_qos.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/mem_qos.o
+<span class="w">  </span>LD<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/rue.o
+<span class="w">  </span>UPD<span class="w">     </span>kernel/config_data
+<span class="w">  </span>GZIP<span class="w">    </span>kernel/config_data.gz
+<span class="w">  </span>...
+<span class="w">  </span>LD<span class="w">      </span>arch/x86/boot/setup.elf
+<span class="w">  </span>OBJCOPY<span class="w"> </span>arch/x86/boot/setup.bin
+<span class="w">  </span>OBJCOPY<span class="w"> </span>arch/x86/boot/vmlinux.bin
+<span class="w">  </span>BUILD<span class="w">   </span>arch/x86/boot/bzImage
+Setup<span class="w"> </span>is<span class="w"> </span><span class="m">17532</span><span class="w"> </span>bytes<span class="w"> </span><span class="o">(</span>padded<span class="w"> </span>to<span class="w"> </span><span class="m">17920</span><span class="w"> </span>bytes<span class="o">)</span>.
+System<span class="w"> </span>is<span class="w"> </span><span class="m">9513</span><span class="w"> </span>kB
+CRC<span class="w"> </span>b75ecb2b
+Kernel:<span class="w"> </span>arch/x86/boot/bzImage<span class="w"> </span>is<span class="w"> </span>ready<span class="w">  </span><span class="o">(</span><span class="c1">#4)</span>
+<span class="w">  </span>Building<span class="w"> </span>modules,<span class="w"> </span>stage<span class="w"> </span><span class="m">2</span>.
+<span class="w">  </span>MODPOST<span class="w"> </span><span class="m">998</span><span class="w"> </span>modules
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/rue.mod.o
+<span class="w">  </span>LD<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>kernel/rue/rue.ko
+</code></pre></div>
+<p>我们可以看到[M]就是我们新加入并编译的rue模块</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># make modules_install</span>
+INSTALL<span class="w"> </span>arch/x86/crypto/aesni-intel.ko
+INSTALL<span class="w"> </span>arch/x86/crypto/blowfish-x86_64.ko
+...
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># modprobe rue</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># make install</span>
+sh<span class="w"> </span>./arch/x86/boot/install.sh<span class="w"> </span><span class="m">5</span>.4.241-1+<span class="w"> </span>arch/x86/boot/bzImage<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>System.map<span class="w"> </span><span class="s2">&quot;/boot&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>reboot</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># reboot</span>
+...
+.reboot<span class="w"> </span>and<span class="w"> </span>login
+...
+</code></pre></div>
+</li>
+<li>
+<p>用<code>modprobe</code> <code>&lt;$module_name&gt;</code>，<code>lsmod</code>和<code>dmesg</code>验证模块加载成功</p>
+</li>
 </ol>
 <details class="success">
 <summary>控制台</summary>
@@ -970,12 +1042,81 @@ autofs4<span class="w">                </span><span class="m">45056</span><span 
 <span class="o">[</span><span class="w">  </span><span class="m">261</span>.490733<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 </details>
-<h2 id="_6">给内核打补丁</h2>
-<p>制作自己的测试内核并替换</p>
+<h3 id="_6">独立编译</h3>
+<ol>
+<li>
+<p>写模块代码</p>
+<div class="highlight"><pre><span></span><code>kernel/rue/cpu_qos.c
+kernel/rue/io_qos.c
+kernel/rue/mem_qos.c
+kernel/rue/net_qos.c
+kernel/rue/rue_main.c
+</code></pre></div>
+</li>
+<li>
+<p>增加Makefile文件(注意makefile必须用tab不能用空格，不然会报错)</p>
+<div class="highlight"><pre><span></span><code><span class="c">  #SPDX-License-Identifier: GPL-2.0</span>
+
+<span class="cp">  ifneq ($(KERNELRELEASE),)</span>
+<span class="c">  #inside kernel tree</span>
+<span class="w">  </span>obj-m<span class="w">   </span>:<span class="o">=</span><span class="w"> </span>rue.o
+<span class="w">  </span>rue-y<span class="w">   </span>:<span class="o">=</span><span class="w"> </span>rue_main.o<span class="w"> </span>cpu_qos.o<span class="w"> </span>io_qos.o<span class="w"> </span>net_qos.o<span class="w"> </span>mem_qos.o
+
+<span class="cp">  else</span>
+
+<span class="w">  </span>KERNEL_DIR<span class="w"> </span>?<span class="o">=</span><span class="w"> </span>/lib/modules/<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>/build
+
+<span class="w">  </span>default:
+<span class="w">          </span><span class="k">$(</span>MAKE<span class="k">)</span><span class="w"> </span>-C<span class="w"> </span><span class="k">$(</span>KERNEL_DIR<span class="k">)</span><span class="w"> </span><span class="nv">M</span><span class="o">=</span><span class="nv">$$</span>PWD
+
+<span class="w">  </span>clean:
+<span class="w">          </span>rm<span class="w"> </span>-rf<span class="w"> </span>*.o<span class="w"> </span>*.o.p<span class="w"> </span>*~<span class="w"> </span>core<span class="w"> </span>.depend<span class="w"> </span>.*.cmd<span class="w"> </span>*.ko<span class="w"> </span>*.mod.c<span class="w"> </span><span class="se">\</span>
+<span class="w">          </span>.tmp_versions<span class="w"> </span>Module.symvers<span class="w"> </span>modules.order<span class="w"> </span><span class="se">\</span>
+<span class="w">          </span>*.a<span class="w"> </span>*.mod<span class="w"> </span>*.builtin
+
+<span class="cp">  endif</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>make</code> <code>insmod &lt;$module_name&gt;.ko</code></p>
+</li>
+</ol>
 <details class="success">
 <summary>控制台</summary>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># modprobe rue              #无报错表明成功</span>
-<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># lsmod</span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># pwd</span>
+/data1/test/rue
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># lsmod</span>
+Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
+sunrpc<span class="w">                </span><span class="m">397312</span><span class="w">  </span><span class="m">1</span>
+virtio_balloon<span class="w">         </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+sch_fq_codel<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">5</span>
+binfmt_misc<span class="w">            </span><span class="m">24576</span><span class="w">  </span><span class="m">1</span>
+ip_tables<span class="w">              </span><span class="m">28672</span><span class="w">  </span><span class="m">0</span>
+virtio_net<span class="w">             </span><span class="m">57344</span><span class="w">  </span><span class="m">0</span>
+net_failover<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>virtio_net
+failover<span class="w">               </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>net_failover
+iscsi_tcp<span class="w">              </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+libiscsi_tcp<span class="w">           </span><span class="m">32768</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>iscsi_tcp
+libiscsi<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>libiscsi_tcp,iscsi_tcp
+fuse<span class="w">                  </span><span class="m">118784</span><span class="w">  </span><span class="m">1</span>
+autofs4<span class="w">                </span><span class="m">45056</span><span class="w">  </span><span class="m">2</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># make</span>
+make<span class="w"> </span>-C<span class="w"> </span>/lib/modules/<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>/build<span class="w"> </span><span class="nv">M</span><span class="o">=</span><span class="nv">$PWD</span>
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/data1/tkernel4&#39;</span>
+<span class="w">  </span>AR<span class="w">      </span>/data1/test/rue/built-in.a
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/rue_main.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/cpu_qos.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/io_qos.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/net_qos.o
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/mem_qos.o
+<span class="w">  </span>LD<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/rue.o
+<span class="w">  </span>Building<span class="w"> </span>modules,<span class="w"> </span>stage<span class="w"> </span><span class="m">2</span>.
+<span class="w">  </span>MODPOST<span class="w"> </span><span class="m">1</span><span class="w"> </span>modules
+<span class="w">  </span>CC<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/rue.mod.o
+<span class="w">  </span>LD<span class="w"> </span><span class="o">[</span>M<span class="o">]</span><span class="w">  </span>/data1/test/rue/rue.ko
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Leaving<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/data1/tkernel4&#39;</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># insmod rue.ko</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># lsmod</span>
 Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
 rue<span class="w">                    </span><span class="m">16384</span><span class="w">  </span><span class="m">0</span>
 sunrpc<span class="w">                </span><span class="m">397312</span><span class="w">  </span><span class="m">1</span>
@@ -991,18 +1132,17 @@ libiscsi_tcp<span class="w">           </span><span class="m">32768</span><span 
 libiscsi<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>libiscsi_tcp,iscsi_tcp
 fuse<span class="w">                  </span><span class="m">118784</span><span class="w">  </span><span class="m">1</span>
 autofs4<span class="w">                </span><span class="m">45056</span><span class="w">  </span><span class="m">2</span>
-
-<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># dmesg</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># dmesg</span>
 <span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Linux<span class="w"> </span>version<span class="w"> </span><span class="m">5</span>.4.241-1+<span class="w"> </span><span class="o">(</span>root@TENCENT64.site<span class="o">)</span><span class="w"> </span><span class="o">(</span>gcc<span class="w"> </span>version<span class="w"> </span><span class="m">8</span>.4.1<span class="w"> </span><span class="m">20200928</span><span class="w"> </span><span class="o">(</span>Red<span class="w"> </span>Hat<span class="w"> </span><span class="m">8</span>.4.1-1<span class="o">)</span><span class="w"> </span><span class="o">(</span>GCC<span class="o">))</span><span class="w"> </span><span class="c1">#4 SMP Thu Aug 3 02:38:31 CST 2023</span>
 <span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd0,msdos1<span class="o">)</span>/boot/vmlinuz-5.4.241-1+<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>5d6283fe-cde6-459f-810c-88c92336a6d5<span class="w"> </span>ro<span class="w"> </span>quiet<span class="w"> </span><span class="nv">elevator</span><span class="o">=</span>noop<span class="w"> </span><span class="nv">console</span><span class="o">=</span>ttyS0,115200<span class="w"> </span><span class="nv">console</span><span class="o">=</span>tty0<span class="w"> </span>vconsole.keymap<span class="o">=</span>us<span class="w"> </span><span class="nv">crashkernel</span><span class="o">=</span>1800M-64G:256M,64G-128G:512M,128G-:768M<span class="w"> </span>vconsole.font<span class="o">=</span>latarcyrheb-sun16<span class="w"> </span>i8042.noaux<span class="w"> </span>net.ifnames<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">biosdevname</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>intel_idle.max_cstate<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">intel_pstate</span><span class="o">=</span>disable<span class="w"> </span><span class="nv">iommu</span><span class="o">=</span>pt<span class="w"> </span><span class="nv">amd_iommu</span><span class="o">=</span>on
 <span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>x86/fpu:<span class="w"> </span>x87<span class="w"> </span>FPU<span class="w"> </span>will<span class="w"> </span>use<span class="w"> </span>FXSAVE
 ...
-<span class="o">[</span><span class="w">    </span><span class="m">6</span>.493898<span class="o">]</span><span class="w"> </span>startagent.sh<span class="w"> </span><span class="o">(</span><span class="m">770</span><span class="o">)</span>:<span class="w"> </span>/proc/842/oom_adj<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>/proc/842/oom_score_adj<span class="w"> </span>instead.
-<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486416<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span>init
-<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486417<span class="o">]</span><span class="w"> </span>exp<span class="w"> </span><span class="k">for</span><span class="w"> </span>mod<span class="w"> </span>load<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span><span class="m">23</span>.8.2.
-
-<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># rmmod rue</span>
-<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># lsmod</span>
+<span class="o">[</span><span class="w">    </span><span class="m">7</span>.572456<span class="o">]</span><span class="w"> </span>startagent.sh<span class="w"> </span><span class="o">(</span><span class="m">773</span><span class="o">)</span>:<span class="w"> </span>/proc/909/oom_adj<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>/proc/909/oom_score_adj<span class="w"> </span>instead.
+<span class="o">[</span><span class="m">44504</span>.119760<span class="o">]</span><span class="w"> </span>rue:<span class="w"> </span>loading<span class="w"> </span>out-of-tree<span class="w"> </span>module<span class="w"> </span>taints<span class="w"> </span>kernel.
+<span class="o">[</span><span class="m">44504</span>.121587<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span>init
+<span class="o">[</span><span class="m">44504</span>.121587<span class="o">]</span><span class="w"> </span>exp<span class="w"> </span><span class="k">for</span><span class="w"> </span>mod<span class="w"> </span>load<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span><span class="m">23</span>.8.2.
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># rmmod rue</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># lsmod</span>
 Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
 sunrpc<span class="w">                </span><span class="m">397312</span><span class="w">  </span><span class="m">1</span>
 virtio_balloon<span class="w">         </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
@@ -1017,12 +1157,277 @@ libiscsi_tcp<span class="w">           </span><span class="m">32768</span><span 
 libiscsi<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>libiscsi_tcp,iscsi_tcp
 fuse<span class="w">                  </span><span class="m">118784</span><span class="w">  </span><span class="m">1</span>
 autofs4<span class="w">                </span><span class="m">45056</span><span class="w">  </span><span class="m">2</span>
-<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># dmesg</span>
-...
-<span class="o">[</span><span class="w">    </span><span class="m">6</span>.493898<span class="o">]</span><span class="w"> </span>startagent.sh<span class="w"> </span><span class="o">(</span><span class="m">770</span><span class="o">)</span>:<span class="w"> </span>/proc/842/oom_adj<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>/proc/842/oom_score_adj<span class="w"> </span>instead.
-<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486416<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span>init
-<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486417<span class="o">]</span><span class="w"> </span>exp<span class="w"> </span><span class="k">for</span><span class="w"> </span>mod<span class="w"> </span>load<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span><span class="m">23</span>.8.2.
-<span class="o">[</span><span class="w">  </span><span class="m">261</span>.490733<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span><span class="nb">exit</span>
+</code></pre></div>
+</details>
+<h2 id="_7">给内核打补丁</h2>
+<p>制作自己的测试内核并替换</p>
+<div class="admonition info">
+<p class="admonition-title">主要体现为对Quilt工具的使用</p>
+</div>
+<details class="success" open="open">
+<summary>控制台</summary>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># quilt new exp-gy-init-rue-module.patch</span>
+Patch<span class="w"> </span>patches/exp-gy-init-rue-module.patch<span class="w"> </span>is<span class="w"> </span>now<span class="w"> </span>on<span class="w"> </span>top
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># quilt series</span>
+patches/exp-gy-init-rue-module.patch
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># quilt add /kernel/Makefile init/Kconfig</span>
+File<span class="w"> </span>/kernel/Makefile<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>patch<span class="w"> </span>patches/exp-gy-init-rue-module.patch
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># cd kernel/rue </span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># touch rue_main.c cpu_qos.c ... #此处省略add其他文件</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># quilt add rue_main.c cpu_qos.c ... #此处省略add其他文件</span>
+File<span class="w"> </span>kernel/rue/rue_main.c<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>patch<span class="w"> </span>../../patches/exp-gy-rue-module-init.patch
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># quilt files</span>
+init/Kconfig
+kernel/Makefile
+kernel/rue/Kconfig
+kernel/rue/Makefile
+kernel/rue/cpu_qos.c
+kernel/rue/io_qos.c
+kernel/rue/mem_qos.c
+kernel/rue/net_qos.c
+kernel/rue/rue_main.c
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># vi rue_main.c</span>
+......
+...修改
+......
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># quilt refresh</span>
+Refreshed<span class="w"> </span>patch<span class="w"> </span>patches/exp-gy-rue-module-init.patch
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>tkernel4<span class="o">]</span><span class="c1"># cat patches/exp-gy-rue-module-init.patch</span>
+Index:<span class="w"> </span>tkernel4/kernel/rue/io_qos.c
+<span class="o">===================================================================</span>
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>tkernel4/kernel/rue/io_qos.c
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,7<span class="w"> </span>@@
++//<span class="w"> </span>SPDX-License-Identifier:<span class="w"> </span>GPL-2.0+
++/*
++<span class="w"> </span>*<span class="w"> </span>Tencent<span class="w"> </span>RUE<span class="w"> </span>IO<span class="w"> </span>QoS
++<span class="w"> </span>*
++<span class="w"> </span>*<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>Tencent<span class="w"> </span>Corporation.
++<span class="w"> </span>*
++<span class="w"> </span>*/#
+Index:<span class="w"> </span>tkernel4/kernel/rue/rue_main.c
+<span class="o">===================================================================</span>
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>tkernel4/kernel/rue/rue_main.c
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,26<span class="w"> </span>@@
++//<span class="w"> </span>SPDX-License-Identifier:<span class="w"> </span>GPL-2.0+
++/*
++<span class="w"> </span>*<span class="w"> </span>Tencent<span class="w"> </span>RUE
++<span class="w"> </span>*
++<span class="w"> </span>*<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>Tencent<span class="w"> </span>Corporation.
++<span class="w"> </span>*
++<span class="w"> </span>*/
++
++#include<span class="w"> </span>&lt;linux/kernel.h&gt;
++#include<span class="w"> </span>&lt;linux/module.h&gt;
++
++static<span class="w"> </span>int<span class="w"> </span>rue_mod_init<span class="o">(</span>void<span class="o">)</span>
++<span class="o">{</span>
++<span class="w">        </span>pr_info<span class="o">(</span><span class="s2">&quot;RUE mod init\n&quot;</span><span class="o">)</span><span class="p">;</span>
++<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
++<span class="o">}</span>
++
++static<span class="w"> </span>void<span class="w"> </span>rue_mod_exit<span class="o">(</span>void<span class="o">)</span>
++<span class="o">{</span>
++<span class="w">        </span>pr_info<span class="o">(</span><span class="s2">&quot;RUE mod exit\n&quot;</span><span class="o">)</span><span class="p">;</span>
++<span class="o">}</span>
++
++module_init<span class="o">(</span>rue_mod_init<span class="o">)</span><span class="p">;</span>
++module_exit<span class="o">(</span>rue_mod_exit<span class="o">)</span><span class="p">;</span>
++MODULE_AUTHOR<span class="o">(</span><span class="s2">&quot;Tencent Corporation&quot;</span><span class="o">)</span><span class="p">;</span>
++MODULE_LICENSE<span class="o">(</span><span class="s2">&quot;GPL v2&quot;</span><span class="o">)</span><span class="p">;</span>
+Index:<span class="w"> </span>tkernel4/kernel/rue/Kconfig
+<span class="o">===================================================================</span>
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>tkernel4/kernel/rue/Kconfig
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,53<span class="w"> </span>@@
++#<span class="w"> </span>Kconfig
++
++#<span class="w"> </span>SPDX-License-Identifier:<span class="w"> </span>GPL-2.0
++#
++#<span class="w"> </span>Tencent<span class="w"> </span>RUE<span class="w"> </span>configuration
++#
++
++config<span class="w"> </span>RUE
++<span class="w">    </span>tristate<span class="w"> </span><span class="s2">&quot;Resource Utilization Enhancement&quot;</span>
++<span class="w">    </span><span class="nb">help</span>
++<span class="w">      </span>Rue<span class="w"> </span>provides<span class="w"> </span>cgroup<span class="w"> </span>level<span class="w"> </span>resource<span class="w"> </span>isolation.<span class="w"> </span>It<span class="w"> </span>can<span class="w"> </span><span class="nb">help</span><span class="w"> </span>user<span class="w"> </span>to
++<span class="w">      </span>increase<span class="w"> </span>resource<span class="w"> </span>utilization.<span class="w"> </span>Rue<span class="w"> </span>contains<span class="w"> </span>four<span class="w"> </span>subsystems:
++<span class="w">      </span>cpu,<span class="w"> </span>memory,<span class="w"> </span>io,<span class="w"> </span>network.<span class="w"> </span>It<span class="w"> </span>allocates<span class="w"> </span>resource<span class="w"> </span>according<span class="w"> </span>to<span class="w"> </span>the
++<span class="w">      </span>priority<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>cgroup.
++
++config<span class="w"> </span>RUE_CPU_QOS
++<span class="w">    </span>bool<span class="w"> </span><span class="s2">&quot;RUE CPU QOS&quot;</span>
++<span class="w">    </span>depends<span class="w"> </span>on<span class="w"> </span>RUE
++<span class="w">    </span><span class="nb">help</span>
++<span class="w">    </span>This<span class="w"> </span>option<span class="w"> </span>enables<span class="w"> </span>RUE<span class="w"> </span>cpu<span class="w"> </span>qos<span class="w"> </span><span class="k">function</span>.<span class="w"> </span>This<span class="w"> </span>adds<span class="w"> </span>a<span class="w"> </span>bt<span class="w"> </span>offline<span class="w"> </span>sched
++<span class="w">    </span>class.
++
++<span class="w">    </span>The<span class="w"> </span>user<span class="w"> </span>can<span class="w"> </span><span class="nb">set</span><span class="w"> </span>a<span class="w"> </span>croup<span class="w"> </span>to<span class="w"> </span>offline,<span class="w"> </span><span class="k">then</span><span class="w"> </span>the<span class="w"> </span>task<span class="w"> </span><span class="k">in</span><span class="w"> </span>offline<span class="w"> </span>cgroup
++<span class="w">    </span>will<span class="w"> </span>only<span class="w"> </span>use<span class="w"> </span>cpu<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>cpu<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>online<span class="w"> </span>task<span class="w"> </span>to<span class="w"> </span>run.
++
++config<span class="w"> </span>RUE_MEM_QOS
++<span class="w">    </span>bool<span class="w"> </span><span class="s2">&quot;RUE MEM QOS&quot;</span>
++<span class="w">    </span>depends<span class="w"> </span>on<span class="w"> </span>RUE
++<span class="w">    </span><span class="nb">help</span>
++<span class="w">    </span>This<span class="w"> </span>option<span class="w"> </span>enables<span class="w"> </span>RUE<span class="w"> </span>memory<span class="w"> </span>qos<span class="w"> </span><span class="k">function</span>.
++
++<span class="w">    </span>RUE<span class="w"> </span>memory<span class="w"> </span>qos<span class="w"> </span>provides<span class="w"> </span>several<span class="w"> </span>features.<span class="w"> </span>These<span class="w"> </span>featues<span class="w"> </span>guarantee<span class="w"> </span>the
++<span class="w">    </span>memory<span class="w"> </span>allocation<span class="w"> </span>of<span class="w"> </span>online<span class="w"> </span>cgroup.<span class="w"> </span>I.E.<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>kernel<span class="w"> </span>oom,<span class="w"> </span>rue
++<span class="w">    </span>will<span class="w"> </span>first<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>the<span class="w"> </span>cgroup<span class="w"> </span>whose<span class="w"> </span>priority<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>lowest.
++
++config<span class="w"> </span>RUE_IO_QOS
++<span class="w">    </span>bool<span class="w"> </span><span class="s2">&quot;RUE IO QOS&quot;</span>
++<span class="w">    </span>depends<span class="w"> </span>on<span class="w"> </span>RUE
++<span class="w">    </span><span class="nb">help</span>
++<span class="w">    </span>This<span class="w"> </span>option<span class="w"> </span>enables<span class="w"> </span>RUE<span class="w"> </span>io<span class="w"> </span>qos<span class="w"> </span><span class="k">function</span>.
++
++<span class="w">    </span>RUE<span class="w"> </span>io<span class="w"> </span>qos<span class="w"> </span>provides<span class="w"> </span>several<span class="w"> </span>features.<span class="w"> </span>These<span class="w"> </span>featues<span class="w"> </span>guarantee<span class="w"> </span>the
++<span class="w">    </span>io<span class="w"> </span>req<span class="w"> </span>of<span class="w"> </span>online<span class="w"> </span>cgroup.<span class="w"> </span>And<span class="w"> </span>provides<span class="w"> </span>the<span class="w"> </span>user<span class="w"> </span>a<span class="w"> </span><span class="nb">read</span><span class="w"> </span>+<span class="w"> </span>write<span class="w"> </span>bps/iops
++<span class="w">    </span>throttle<span class="w"> </span>feature.
++
++config<span class="w"> </span>RUE_NET_QOS
++<span class="w">    </span>bool<span class="w"> </span><span class="s2">&quot;RUE NET QOS&quot;</span>
++<span class="w">    </span>depends<span class="w"> </span>on<span class="w"> </span>RUE
++<span class="w">    </span><span class="nb">help</span>
++<span class="w">    </span>This<span class="w"> </span>option<span class="w"> </span>enables<span class="w"> </span>RUE<span class="w"> </span>net<span class="w"> </span>qos<span class="w"> </span><span class="k">function</span>.
++
++<span class="w">    </span>RUE<span class="w"> </span>net<span class="w"> </span>qos<span class="w"> </span>provides<span class="w"> </span>several<span class="w"> </span>features.<span class="w"> </span>These<span class="w"> </span>featues<span class="w"> </span>guarantee<span class="w"> </span>the
++<span class="w">    </span>network<span class="w"> </span>bandwidth<span class="w"> </span>allocation<span class="w"> </span>of<span class="w"> </span>online<span class="w"> </span>cgroup.
+Index:<span class="w"> </span>tkernel4/kernel/rue/Makefile
+<span class="o">===================================================================</span>
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>tkernel4/kernel/rue/Makefile
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,22<span class="w"> </span>@@
++#<span class="w"> </span>SPDX-License-Identifier:<span class="w"> </span>GPL-2.0
++
++ifneq<span class="w"> </span><span class="o">(</span><span class="k">$(</span>KERNELRELEASE<span class="k">)</span>,<span class="o">)</span>
++#inside<span class="w"> </span>kernel<span class="w"> </span>tree
++obj-m<span class="w">   </span>:<span class="o">=</span><span class="w"> </span>rue.o
++rue-y<span class="w">   </span>:<span class="o">=</span><span class="w"> </span>rue_main.o<span class="w"> </span>cpu_qos.o<span class="w"> </span>io_qos.o<span class="w"> </span>net_qos.o<span class="w"> </span>mem_qos.o
++
++else
++
++KERNEL_DIR<span class="w"> </span>?<span class="o">=</span><span class="w"> </span>/lib/modules/<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>/build
++
++default:
++<span class="w">       </span><span class="k">$(</span>MAKE<span class="k">)</span><span class="w"> </span>-C<span class="w"> </span><span class="k">$(</span>KERNEL_DIR<span class="k">)</span><span class="w"> </span><span class="nv">M</span><span class="o">=</span><span class="nv">$$</span>PWD
++
++clean:
++<span class="w">       </span>rm<span class="w"> </span>-rf<span class="w"> </span>*.o<span class="w"> </span>*.o.p<span class="w"> </span>*~<span class="w"> </span>core<span class="w"> </span>.depend<span class="w"> </span>.*.cmd<span class="w"> </span>*.ko<span class="w"> </span>*.mod.c<span class="w"> </span><span class="se">\</span>
++<span class="w">        </span>.tmp_versions<span class="w"> </span>Module.symvers<span class="w"> </span>modules.order<span class="w"> </span><span class="se">\</span>
++<span class="w">        </span>*.a<span class="w"> </span>*.mod<span class="w"> </span>*.builtin
++
++endif
++
++
+Index:<span class="w"> </span>tkernel4/kernel/rue/cpu_qos.c
+<span class="o">===================================================================</span>
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>tkernel4/kernel/rue/cpu_qos.c
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,7<span class="w"> </span>@@
++//<span class="w"> </span>SPDX-License-Identifier:<span class="w"> </span>GPL-2.0+
++/*
++<span class="w"> </span>*<span class="w"> </span>Tencent<span class="w"> </span>RUE<span class="w"> </span>CPU<span class="w"> </span>QoS
++<span class="w"> </span>*
++<span class="w"> </span>*<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>Tencent<span class="w"> </span>Corporation.
++<span class="w"> </span>*
++<span class="w"> </span>*/
+Index:<span class="w"> </span>tkernel4/kernel/rue/mem_qos.c
+<span class="o">===================================================================</span>
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>tkernel4/kernel/rue/mem_qos.c
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,7<span class="w"> </span>@@
++//<span class="w"> </span>SPDX-License-Identifier:<span class="w"> </span>GPL-2.0+
++/*
++<span class="w"> </span>*<span class="w"> </span>Tencent<span class="w"> </span>RUE<span class="w"> </span>Memory<span class="w"> </span>QoS
++<span class="w"> </span>*
++<span class="w"> </span>*<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>Tencent<span class="w"> </span>Corporation.
++<span class="w"> </span>*
++<span class="w"> </span>*/
+Index:<span class="w"> </span>tkernel4/kernel/rue/net_qos.c
+<span class="o">===================================================================</span>
+---<span class="w"> </span>/dev/null
++++<span class="w"> </span>tkernel4/kernel/rue/net_qos.c
+@@<span class="w"> </span>-0,0<span class="w"> </span>+1,7<span class="w"> </span>@@
++//<span class="w"> </span>SPDX-License-Identifier:<span class="w"> </span>GPL-2.0+
++/*
++<span class="w"> </span>*<span class="w"> </span>Tencent<span class="w"> </span>RUE<span class="w"> </span>NetWork<span class="w"> </span>QoS
++<span class="w"> </span>*
++<span class="w"> </span>*<span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>Tencent<span class="w"> </span>Corporation.
++<span class="w"> </span>*
++<span class="w"> </span>*/
+Index:<span class="w"> </span>tkernel4/init/Kconfig
+<span class="o">===================================================================</span>
+---<span class="w"> </span>tkernel4.orig/init/Kconfig
++++<span class="w"> </span>tkernel4/init/Kconfig
+@@<span class="w"> </span>-387,6<span class="w"> </span>+387,7<span class="w"> </span>@@<span class="w"> </span>config<span class="w"> </span>AUDITSYSCALL
+
+<span class="nb">source</span><span class="w"> </span><span class="s2">&quot;kernel/irq/Kconfig&quot;</span>
+<span class="nb">source</span><span class="w"> </span><span class="s2">&quot;kernel/time/Kconfig&quot;</span>
++source<span class="w"> </span><span class="s2">&quot;kernel/rue/Kconfig&quot;</span>
+<span class="nb">source</span><span class="w"> </span><span class="s2">&quot;kernel/Kconfig.preempt&quot;</span>
+
+menu<span class="w"> </span><span class="s2">&quot;CPU/Task time and stats accounting&quot;</span>
+Index:<span class="w"> </span>tkernel4/kernel/Makefile
+<span class="o">===================================================================</span>
+---<span class="w"> </span>tkernel4.orig/kernel/Makefile
++++<span class="w"> </span>tkernel4/kernel/Makefile
+@@<span class="w"> </span>-47,6<span class="w"> </span>+47,7<span class="w"> </span>@@<span class="w"> </span>obj-y<span class="w"> </span>+<span class="o">=</span><span class="w"> </span>irq/
+obj-y<span class="w"> </span>+<span class="o">=</span><span class="w"> </span>rcu/
+obj-y<span class="w"> </span>+<span class="o">=</span><span class="w"> </span>livepatch/
+obj-y<span class="w"> </span>+<span class="o">=</span><span class="w"> </span>dma/
++obj-y<span class="w"> </span>+<span class="o">=</span><span class="w"> </span>rue/
+
+obj-<span class="k">$(</span>CONFIG_CHECKPOINT_RESTORE<span class="k">)</span><span class="w"> </span>+<span class="o">=</span><span class="w"> </span>kcmp.o
+obj-<span class="k">$(</span>CONFIG_FREEZER<span class="k">)</span><span class="w"> </span>+<span class="o">=</span><span class="w"> </span>freezer.o
+
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># ll</span>
+total<span class="w"> </span><span class="m">28</span>
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">116</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:19<span class="w"> </span>cpu_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">116</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:19<span class="w"> </span>io_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1528</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:19<span class="w"> </span>Kconfig
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">409</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:19<span class="w"> </span>Makefile
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">119</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:19<span class="w"> </span>mem_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">120</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:19<span class="w"> </span>net_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">439</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:19<span class="w"> </span>rue_main.c
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># quilt pop</span>
+Removing<span class="w"> </span>patch<span class="w"> </span>../../patches/exp-gy-rue-module-init.patch
+Restoring<span class="w"> </span>kernel/Makefile
+Removing<span class="w"> </span>kernel/rue/io_qos.c
+Removing<span class="w"> </span>kernel/rue/Makefile
+Removing<span class="w"> </span>kernel/rue/cpu_qos.c
+Removing<span class="w"> </span>kernel/rue/Kconfig
+Removing<span class="w"> </span>kernel/rue/net_qos.c
+Removing<span class="w"> </span>kernel/rue/rue_main.c
+Removing<span class="w"> </span>kernel/rue/mem_qos.c
+Restoring<span class="w"> </span>init/Kconfig
+
+No<span class="w"> </span>patches<span class="w"> </span>applied
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># ll</span>
+total<span class="w"> </span><span class="m">0</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># quilt push</span>
+Applying<span class="w"> </span>patch<span class="w"> </span>../../patches/exp-gy-rue-module-init.patch
+patching<span class="w"> </span>file<span class="w"> </span>kernel/rue/io_qos.c
+patching<span class="w"> </span>file<span class="w"> </span>kernel/rue/rue_main.c
+patching<span class="w"> </span>file<span class="w"> </span>kernel/rue/Kconfig
+patching<span class="w"> </span>file<span class="w"> </span>kernel/rue/Makefile
+patching<span class="w"> </span>file<span class="w"> </span>kernel/rue/cpu_qos.c
+patching<span class="w"> </span>file<span class="w"> </span>kernel/rue/mem_qos.c
+patching<span class="w"> </span>file<span class="w"> </span>kernel/rue/net_qos.c
+patching<span class="w"> </span>file<span class="w"> </span>init/Kconfig
+patching<span class="w"> </span>file<span class="w"> </span>kernel/Makefile
+
+Now<span class="w"> </span>at<span class="w"> </span>patch<span class="w"> </span>../../patches/exp-gy-rue-module-init.patch
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>rue<span class="o">]</span><span class="c1"># ll</span>
+total<span class="w"> </span><span class="m">28</span>
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">116</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:20<span class="w"> </span>cpu_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">116</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:20<span class="w"> </span>io_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1528</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:20<span class="w"> </span>Kconfig
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">409</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:20<span class="w"> </span>Makefile
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">119</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:20<span class="w"> </span>mem_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">120</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:20<span class="w"> </span>net_qos.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">439</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">21</span>:20<span class="w"> </span>rue_main.c
 </code></pre></div>
 </details>
 
@@ -1080,13 +1485,13 @@ autofs4<span class="w">                </span><span class="m">45056</span><span 
         
         
           
-          <a href="../../" class="md-footer__link md-footer__link--next" aria-label="Next: b">
+          <a href="../../oil/CNOOC_history/" class="md-footer__link md-footer__link--next" aria-label="Next: CNOOC">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                b
+                CNOOC
               </div>
             </div>
             <div class="md-footer__button md-icon">
