@@ -48,8 +48,6 @@
     
       <link rel="stylesheet" href="../../../styles/extra.css">
     
-      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -57,7 +55,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -76,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tlinux" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -157,6 +164,46 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
     
   </nav>
   
@@ -235,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../oil/PI_research_1/" class="md-tabs__link">
+        <a href="../../oil/PI_research_1/" class="md-tabs__link">
           
   
   
@@ -443,8 +490,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -477,8 +522,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -487,9 +530,66 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 熟悉内核编译
+      熟悉内核编译
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="熟悉内核编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      观察内核代码结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译内核
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      编写简单的内核模块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编写简单的内核模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译进内核
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      给内核打补丁
     </span>
   </a>
   
@@ -573,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oil/PI_research_1/" class="md-nav__link">
+      <a href="../../oil/PI_research_1/" class="md-nav__link">
         
   
   
@@ -635,8 +735,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -645,9 +743,66 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 熟悉内核编译
+      熟悉内核编译
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="熟悉内核编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      观察内核代码结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译内核
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      编写简单的内核模块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编写简单的内核模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译进内核
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      给内核打补丁
     </span>
   </a>
   
@@ -669,38 +824,207 @@
 
 
 
-<h1 id="tlinux">TLinux内核编译实验</h1>
+  <h1>TLinux内核编译实验</h1>
+
 <div class="admonition abstract">
 <p class="admonition-title">⚡ AI摘要 (GLM)</p>
-<p>本实验旨在熟悉TLinux内核编译流程，包括使用menuconfig、kconfig等工具，了解内核代码结构，并通过Git分支lts/5.4.241-1-tlinux4-0017进行编译实践。</p>
+<p>本文档介绍了TLinux内核编译实验，包括熟悉内核编译环境、代码结构，以及如何编译内核和编写简单的内核模块。实验涉及编译进内核、独立编译等模式，并展示了如何添加模块代码、修改Makefile和Kconfig文件，以及如何给内核打补丁。</p>
 </div>
-<h2 id="1">1. 熟悉内核编译</h2>
+<h2 id="_1">熟悉内核编译</h2>
 <p>了解menuconfig，kconfig等。了解内核代码树结构。</p>
-<ul>
-<li>通过<code>tree -L 1</code>观察内核代码结构</li>
-<li>
-<p>编译内核</p>
+<h3 id="_2">观察内核代码结构</h3>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<h3 id="_3">编译内核</h3>
 <p>Git branch: lts/5.4.241-1-tlinux4-0017</p>
-<ul>
-<li>make ARCH=x86 tencentconfig</li>
-<li>make menuconfig    将模块签名去掉</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img alt="" src="../../../images/os/Kernel_compilation_experiment/make_menu_config_0.png" /></td>
-<td><img alt="" src="../../../images/os/Kernel_compilation_experiment/make_menu_config_1.png" /></td>
-</tr>
-</tbody>
-</table>
+<ol>
+<li><code>make ARCH=x86 tencentconfig</code></li>
+<li>
+<p><code>make menuconfig</code>    将模块签名去掉</p>
+<p><a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/make_menu_config_0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/make_menu_config_0.png" /></a>
+<a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/make_menu_config_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/make_menu_config_1.png" /></a></p>
 </li>
-</ul>
+<li>
+<p><code>make -j8</code></p>
+<blockquote>
+<p>编译可能会碰到错误，根据提示安装下列包：</p>
+<p>yum install openssl-devel</p>
+<p>yum install elfutils-libelf-devel</p>
+<p>yum install dwarves</p>
+</blockquote>
+</li>
+<li>
+<p><code>make modules_install</code></p>
+</li>
+<li>
+<p><code>make install</code></p>
+<p><a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/kernel_version_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/kernel_version_1.png" /></a></p>
+</li>
+<li>
+<p><code>reboot</code></p>
+<p><a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/kernel_version_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../images/os/Kernel_compilation_experiment/kernel_version_2.png" /></a></p>
+</li>
+</ol>
+<h2 id="_4">编写简单的内核模块</h2>
+<p>支持三种模式：<span class="blue"><strong>编译进内核</strong></span>、<span class="blue"><strong>m</strong></span>、<span class="blue"><strong>独立编译</strong></span></p>
+<div class="admonition info">
+<p class="admonition-title">编译进内核，m和独立编译</p>
+<p><span class="blue">m</span>指在make menuconfig菜单中加载新模块[]中的标识。其中[ ]代表不编译该模块，[*]代表将其加入内核代码树一起编译，[M]为单独编译该模块不加入内核代码树。<span class="blue">m</span>对应最后一个，<span class="blue">编译进内核</span>对应第二个。</p>
+<p>区别 ：编译进内核后用modprobe而不是需要insmod，后两者需要。后两者区别：m在tkernel4文件夹内部，独立编译任意指定文件夹。独立编译和前两者区别：前两者需要配置/kernel/Makefile和 init/Kconfig</p>
+<p>这里只展示<span class="blue">编译进内核</span>和<span class="blue">独立编译</span>，<span class="blue">m</span>大同小异略去</p>
+</div>
+<h3 id="_5">编译进内核</h3>
+<ol>
+<li>
+<p>添加模块代码（以添加rue模块为例）</p>
+<div class="highlight"><pre><span></span><code>kernel/rue/Kconfig
+kernel/rue/Makefile
+kernel/rue/cpu_qos.c
+kernel/rue/io_qos.c
+kernel/rue/mem_qos.c
+kernel/rue/net_qos.c
+kernel/rue/rue_main.c
+</code></pre></div>
+</li>
+<li>
+<p>修改 /kernel/Makefile（使make的时候可以编译）</p>
+<div class="highlight"><pre><span></span><code>@@ -43,6 +43,7 @@ obj-y += irq/
+obj-y += rcu/
+obj-y += livepatch/
+obj-y += dma/
++obj-y += rue/
+
+obj-$(CONFIG_CHECKPOINT_RESTORE) += kcmp.o
+obj-$(CONFIG_FREEZER) += freezer.o
+</code></pre></div>
+</li>
+<li>
+<p>修改 /init/Kconfig（使其加入menuconfig）</p>
+<div class="highlight"><pre><span></span><code>@@ -373,6 +373,7 @@ config AUDITSYSCALL
+
+source &quot;kernel/irq/Kconfig&quot;
+source &quot;kernel/time/Kconfig&quot;
++source &quot;kernel/rue/Kconfig&quot;
+source &quot;kernel/Kconfig.preempt&quot;
+
+menu &quot;CPU/Task time and stats accounting&quot;
+</code></pre></div>
+</li>
+<li>
+<p>Make menuconfig 生成.config文件（如果有模块签名去掉模块签名）</p>
+<p><a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/2141.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/2141.png" /></a>
+<a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/2142.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/2142.png" /></a>
+<a class="glightbox" href="../../../images/os/Kernel_compilation_experiment/2143.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="half-width" src="../../../images/os/Kernel_compilation_experiment/2143.png" /></a></p>
+</li>
+</ol>
+<details class="success">
+<summary>控制台</summary>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># modprobe rue              #无报错表明成功</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># lsmod</span>
+Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
+rue<span class="w">                    </span><span class="m">16384</span><span class="w">  </span><span class="m">0</span>
+sunrpc<span class="w">                </span><span class="m">397312</span><span class="w">  </span><span class="m">1</span>
+virtio_balloon<span class="w">         </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+sch_fq_codel<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">5</span>
+binfmt_misc<span class="w">            </span><span class="m">24576</span><span class="w">  </span><span class="m">1</span>
+ip_tables<span class="w">              </span><span class="m">28672</span><span class="w">  </span><span class="m">0</span>
+virtio_net<span class="w">             </span><span class="m">57344</span><span class="w">  </span><span class="m">0</span>
+net_failover<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>virtio_net
+failover<span class="w">               </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>net_failover
+iscsi_tcp<span class="w">              </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+libiscsi_tcp<span class="w">           </span><span class="m">32768</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>iscsi_tcp
+libiscsi<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>libiscsi_tcp,iscsi_tcp
+fuse<span class="w">                  </span><span class="m">118784</span><span class="w">  </span><span class="m">1</span>
+autofs4<span class="w">                </span><span class="m">45056</span><span class="w">  </span><span class="m">2</span>
+
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># dmesg</span>
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Linux<span class="w"> </span>version<span class="w"> </span><span class="m">5</span>.4.241-1+<span class="w"> </span><span class="o">(</span>root@TENCENT64.site<span class="o">)</span><span class="w"> </span><span class="o">(</span>gcc<span class="w"> </span>version<span class="w"> </span><span class="m">8</span>.4.1<span class="w"> </span><span class="m">20200928</span><span class="w"> </span><span class="o">(</span>Red<span class="w"> </span>Hat<span class="w"> </span><span class="m">8</span>.4.1-1<span class="o">)</span><span class="w"> </span><span class="o">(</span>GCC<span class="o">))</span><span class="w"> </span><span class="c1">#4 SMP Thu Aug 3 02:38:31 CST 2023</span>
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd0,msdos1<span class="o">)</span>/boot/vmlinuz-5.4.241-1+<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>5d6283fe-cde6-459f-810c-88c92336a6d5<span class="w"> </span>ro<span class="w"> </span>quiet<span class="w"> </span><span class="nv">elevator</span><span class="o">=</span>noop<span class="w"> </span><span class="nv">console</span><span class="o">=</span>ttyS0,115200<span class="w"> </span><span class="nv">console</span><span class="o">=</span>tty0<span class="w"> </span>vconsole.keymap<span class="o">=</span>us<span class="w"> </span><span class="nv">crashkernel</span><span class="o">=</span>1800M-64G:256M,64G-128G:512M,128G-:768M<span class="w"> </span>vconsole.font<span class="o">=</span>latarcyrheb-sun16<span class="w"> </span>i8042.noaux<span class="w"> </span>net.ifnames<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">biosdevname</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>intel_idle.max_cstate<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">intel_pstate</span><span class="o">=</span>disable<span class="w"> </span><span class="nv">iommu</span><span class="o">=</span>pt<span class="w"> </span><span class="nv">amd_iommu</span><span class="o">=</span>on
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>x86/fpu:<span class="w"> </span>x87<span class="w"> </span>FPU<span class="w"> </span>will<span class="w"> </span>use<span class="w"> </span>FXSAVE
+...
+<span class="o">[</span><span class="w">    </span><span class="m">6</span>.493898<span class="o">]</span><span class="w"> </span>startagent.sh<span class="w"> </span><span class="o">(</span><span class="m">770</span><span class="o">)</span>:<span class="w"> </span>/proc/842/oom_adj<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>/proc/842/oom_score_adj<span class="w"> </span>instead.
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486416<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span>init
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486417<span class="o">]</span><span class="w"> </span>exp<span class="w"> </span><span class="k">for</span><span class="w"> </span>mod<span class="w"> </span>load<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span><span class="m">23</span>.8.2.
+
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># rmmod rue</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># lsmod</span>
+Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
+sunrpc<span class="w">                </span><span class="m">397312</span><span class="w">  </span><span class="m">1</span>
+virtio_balloon<span class="w">         </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+sch_fq_codel<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">5</span>
+binfmt_misc<span class="w">            </span><span class="m">24576</span><span class="w">  </span><span class="m">1</span>
+ip_tables<span class="w">              </span><span class="m">28672</span><span class="w">  </span><span class="m">0</span>
+virtio_net<span class="w">             </span><span class="m">57344</span><span class="w">  </span><span class="m">0</span>
+net_failover<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>virtio_net
+failover<span class="w">               </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>net_failover
+iscsi_tcp<span class="w">              </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+libiscsi_tcp<span class="w">           </span><span class="m">32768</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>iscsi_tcp
+libiscsi<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>libiscsi_tcp,iscsi_tcp
+fuse<span class="w">                  </span><span class="m">118784</span><span class="w">  </span><span class="m">1</span>
+autofs4<span class="w">                </span><span class="m">45056</span><span class="w">  </span><span class="m">2</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># dmesg</span>
+...
+<span class="o">[</span><span class="w">    </span><span class="m">6</span>.493898<span class="o">]</span><span class="w"> </span>startagent.sh<span class="w"> </span><span class="o">(</span><span class="m">770</span><span class="o">)</span>:<span class="w"> </span>/proc/842/oom_adj<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>/proc/842/oom_score_adj<span class="w"> </span>instead.
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486416<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span>init
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486417<span class="o">]</span><span class="w"> </span>exp<span class="w"> </span><span class="k">for</span><span class="w"> </span>mod<span class="w"> </span>load<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span><span class="m">23</span>.8.2.
+<span class="o">[</span><span class="w">  </span><span class="m">261</span>.490733<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span><span class="nb">exit</span>
+</code></pre></div>
+</details>
+<h2 id="_6">给内核打补丁</h2>
+<p>制作自己的测试内核并替换</p>
+<details class="success">
+<summary>控制台</summary>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># modprobe rue              #无报错表明成功</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># lsmod</span>
+Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
+rue<span class="w">                    </span><span class="m">16384</span><span class="w">  </span><span class="m">0</span>
+sunrpc<span class="w">                </span><span class="m">397312</span><span class="w">  </span><span class="m">1</span>
+virtio_balloon<span class="w">         </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+sch_fq_codel<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">5</span>
+binfmt_misc<span class="w">            </span><span class="m">24576</span><span class="w">  </span><span class="m">1</span>
+ip_tables<span class="w">              </span><span class="m">28672</span><span class="w">  </span><span class="m">0</span>
+virtio_net<span class="w">             </span><span class="m">57344</span><span class="w">  </span><span class="m">0</span>
+net_failover<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>virtio_net
+failover<span class="w">               </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>net_failover
+iscsi_tcp<span class="w">              </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+libiscsi_tcp<span class="w">           </span><span class="m">32768</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>iscsi_tcp
+libiscsi<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>libiscsi_tcp,iscsi_tcp
+fuse<span class="w">                  </span><span class="m">118784</span><span class="w">  </span><span class="m">1</span>
+autofs4<span class="w">                </span><span class="m">45056</span><span class="w">  </span><span class="m">2</span>
+
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># dmesg</span>
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Linux<span class="w"> </span>version<span class="w"> </span><span class="m">5</span>.4.241-1+<span class="w"> </span><span class="o">(</span>root@TENCENT64.site<span class="o">)</span><span class="w"> </span><span class="o">(</span>gcc<span class="w"> </span>version<span class="w"> </span><span class="m">8</span>.4.1<span class="w"> </span><span class="m">20200928</span><span class="w"> </span><span class="o">(</span>Red<span class="w"> </span>Hat<span class="w"> </span><span class="m">8</span>.4.1-1<span class="o">)</span><span class="w"> </span><span class="o">(</span>GCC<span class="o">))</span><span class="w"> </span><span class="c1">#4 SMP Thu Aug 3 02:38:31 CST 2023</span>
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd0,msdos1<span class="o">)</span>/boot/vmlinuz-5.4.241-1+<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>5d6283fe-cde6-459f-810c-88c92336a6d5<span class="w"> </span>ro<span class="w"> </span>quiet<span class="w"> </span><span class="nv">elevator</span><span class="o">=</span>noop<span class="w"> </span><span class="nv">console</span><span class="o">=</span>ttyS0,115200<span class="w"> </span><span class="nv">console</span><span class="o">=</span>tty0<span class="w"> </span>vconsole.keymap<span class="o">=</span>us<span class="w"> </span><span class="nv">crashkernel</span><span class="o">=</span>1800M-64G:256M,64G-128G:512M,128G-:768M<span class="w"> </span>vconsole.font<span class="o">=</span>latarcyrheb-sun16<span class="w"> </span>i8042.noaux<span class="w"> </span>net.ifnames<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">biosdevname</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>intel_idle.max_cstate<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">intel_pstate</span><span class="o">=</span>disable<span class="w"> </span><span class="nv">iommu</span><span class="o">=</span>pt<span class="w"> </span><span class="nv">amd_iommu</span><span class="o">=</span>on
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>x86/fpu:<span class="w"> </span>x87<span class="w"> </span>FPU<span class="w"> </span>will<span class="w"> </span>use<span class="w"> </span>FXSAVE
+...
+<span class="o">[</span><span class="w">    </span><span class="m">6</span>.493898<span class="o">]</span><span class="w"> </span>startagent.sh<span class="w"> </span><span class="o">(</span><span class="m">770</span><span class="o">)</span>:<span class="w"> </span>/proc/842/oom_adj<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>/proc/842/oom_score_adj<span class="w"> </span>instead.
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486416<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span>init
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486417<span class="o">]</span><span class="w"> </span>exp<span class="w"> </span><span class="k">for</span><span class="w"> </span>mod<span class="w"> </span>load<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span><span class="m">23</span>.8.2.
+
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># rmmod rue</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># lsmod</span>
+Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
+sunrpc<span class="w">                </span><span class="m">397312</span><span class="w">  </span><span class="m">1</span>
+virtio_balloon<span class="w">         </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+sch_fq_codel<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">5</span>
+binfmt_misc<span class="w">            </span><span class="m">24576</span><span class="w">  </span><span class="m">1</span>
+ip_tables<span class="w">              </span><span class="m">28672</span><span class="w">  </span><span class="m">0</span>
+virtio_net<span class="w">             </span><span class="m">57344</span><span class="w">  </span><span class="m">0</span>
+net_failover<span class="w">           </span><span class="m">20480</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>virtio_net
+failover<span class="w">               </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>net_failover
+iscsi_tcp<span class="w">              </span><span class="m">24576</span><span class="w">  </span><span class="m">0</span>
+libiscsi_tcp<span class="w">           </span><span class="m">32768</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>iscsi_tcp
+libiscsi<span class="w">               </span><span class="m">61440</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>libiscsi_tcp,iscsi_tcp
+fuse<span class="w">                  </span><span class="m">118784</span><span class="w">  </span><span class="m">1</span>
+autofs4<span class="w">                </span><span class="m">45056</span><span class="w">  </span><span class="m">2</span>
+<span class="o">[</span>root@TENCENT64<span class="w"> </span>~<span class="o">]</span><span class="c1"># dmesg</span>
+...
+<span class="o">[</span><span class="w">    </span><span class="m">6</span>.493898<span class="o">]</span><span class="w"> </span>startagent.sh<span class="w"> </span><span class="o">(</span><span class="m">770</span><span class="o">)</span>:<span class="w"> </span>/proc/842/oom_adj<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>/proc/842/oom_score_adj<span class="w"> </span>instead.
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486416<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span>init
+<span class="o">[</span><span class="w">  </span><span class="m">163</span>.486417<span class="o">]</span><span class="w"> </span>exp<span class="w"> </span><span class="k">for</span><span class="w"> </span>mod<span class="w"> </span>load<span class="w"> </span><span class="nb">test</span><span class="w"> </span>on<span class="w"> </span><span class="m">23</span>.8.2.
+<span class="o">[</span><span class="w">  </span><span class="m">261</span>.490733<span class="o">]</span><span class="w"> </span>RUE<span class="w"> </span>mod<span class="w"> </span><span class="nb">exit</span>
+</code></pre></div>
+</details>
 
 
 
@@ -831,5 +1155,7 @@
       <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
