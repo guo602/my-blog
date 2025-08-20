@@ -1,3 +1,101 @@
 .md-footer-nav {
   display: none;
 }
+
+.md-typeset h1{
+    font-weight: 700 !important; /* 或者使用 700 表示更粗 */
+    color: #3F52B5 !important;
+}
+
+.md-typeset h2{
+    font-weight: 600 !important; /* 或者使用 700 表示更粗 */
+}
+
+
+
+
+/* 一级标题（#）：不编号，但每次出现清空 h2、h3 */
+.md-typeset h1 {
+  counter-reset: h2-counter h3-counter h4-counter;
+}
+
+/* 二级标题（##）：编号 1, 2, 3…，并清空 h3 */
+.md-typeset h2 {
+  counter-reset: h3-counter h4-counter;
+  counter-increment: h2-counter;
+}
+.md-typeset h2::before {
+  content: counter(h2-counter) " ";
+  font-weight: bold;
+}
+
+/* 三级标题（###）：编号 1.1, 1.2… */
+.md-typeset h3 {
+  counter-increment: h3-counter h4-counter;
+}
+.md-typeset h3::before {
+  content: counter(h2-counter) "." counter(h3-counter) " ";
+  font-weight: bold;
+}
+
+.md-typeset h4 {
+  counter-increment: h4-counter;
+}
+.md-typeset h4::before {
+  content: counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) " ";
+  font-weight: bold;
+}
+
+
+
+
+/* 使带有 half-width 类的图片并排显示 */
+.half-width {
+    display: inline-block;
+    width: calc(50% - 10px); /* 计算宽度，减去间隙 */
+    margin-right: 10px; /* 添加右边距作为间隙 */
+    vertical-align: top; /* 让顶部对齐 */
+    box-sizing: border-box; /* 确保宽度计算包含 padding 和 border */
+}
+
+/* 可选：清除最后一幅图的右边距 */
+.half-width:last-child {
+    margin-right: 0;
+}
+
+/* 确保图片说明也保持在一列内 */
+.half-width + .half-width + em,
+.half-width + em {
+    display: block;
+    width: calc(50% - 10px);
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+}
+
+article ol > li::marker {
+    color:  #1356f0; /* 改为你想要的任何颜色，例如橙色 */
+    font-weight: bold; /* 可选：同时加粗数字 */
+}
+
+/* 定义一系列颜色工具类 */
+.red {
+    color: #e53935; /* 一种好看的红色 */
+}
+.green {
+    color: #43a047; /* 一种好看的绿色 */
+}
+.blue {
+    color: #1e88e5; /* 一种好看的蓝色 */
+}
+.orange {
+    color: #ff6d00;
+}
+.purple {
+    color: #9c27b0;
+}
+
+/* 可以组合其他样式 */
+.bold {
+    font-weight: 600;
+}

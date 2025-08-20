@@ -16,14 +16,14 @@ theme:
           primary: indigo
           accent: indigo
           toggle:
-            icon: material/toggle-switch
+            icon: material/weather-sunny
             name: Switch to dark mode
         - media: "(prefers-color-scheme: dark)"
           scheme: slate
           primary: black
           accent: indigo
           toggle:
-            icon: material/toggle-switch-off
+            icon: material/weather-night
             name: Switch to system preference
   hero:
     image: docs/images/hero-bg.png
@@ -41,13 +41,32 @@ theme:
 nav:
   - Home: index.md
   - CS: 
-    - a: blog/index.md
+    - Operating System: 
+      - blog/os/Kernel_compilation_experiment.md
     - b: blog/index.md
   - PI: 
-    - c: oil/index.md
-  # - 石油: 
-  #   - c: blog/index.md
+    - 石油行业学习: blog/oil/PI_research_1.md
+  - About me: aboutme.md 
+    # - NealGuo: 
+  
 
+plugins:
+  - search
+  - glightbox
+  # - statistics
+  - ai-summary:
+      ai_service: "glm"  # "deepseek",or "openai", "gemini", "glm"
+      summary_language: "zh"  # or "zh"
+      cache_enabled: true
+      local_enabled: true
+      debug: false
+      cache_expire_days: 30
+      enabled_folders:
+        - blog/os # Process blog folder
+        - blog/oil
+      # exclude_patterns:
+      #   - tags.md # Exclude tags file
+  
 extra:
   social:
     - icon: fontawesome/brands/weixin
@@ -63,12 +82,17 @@ extra:
     # link: https://social/@email
 
   generator: false #是否删除页脚显示“使用 MkDocs 材料制造”
-  markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
-    - abbr
-    - attr_list
-    - admonition
-    - def_list
-    - footnotes
-    - md_in_html
+markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+  - neoteroi.timeline
+  - pymdownx.superfences
+  - pymdownx.details
+  # - pymdownx.blocks
 extra_css:
   - styles/extra.css
+  
