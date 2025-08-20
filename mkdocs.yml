@@ -43,9 +43,8 @@ nav:
   - CS: 
     - Operating System: 
       - blog/os/Kernel_compilation_experiment.md
-    - b: blog/index.md
   - PI: 
-    - 石油行业学习: blog/oil/PI_research_1.md
+    - CNOOC: blog/oil/CNOOC_history.md
   - About me: aboutme.md 
     # - NealGuo: 
   
@@ -53,6 +52,9 @@ nav:
 plugins:
   - search
   - glightbox
+  - mermaid2
+     
+
   # - statistics
   - ai-summary:
       ai_service: "glm"  # "deepseek",or "openai", "gemini", "glm"
@@ -90,7 +92,11 @@ markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/ex
   - footnotes
   - md_in_html
   - neoteroi.timeline
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:mermaid2.fence_mermaid_custom
   - pymdownx.details
   # - pymdownx.blocks
 extra_css:

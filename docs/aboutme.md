@@ -28,6 +28,7 @@
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> -->
 
 <link rel="stylesheet" href="../styles/portfolio.css">
+
 <!-- 
 <div class="qualification__tabs">
     <div class="qualification__button qualification__active" data-target='#education'>
@@ -35,7 +36,7 @@
         生平
     </div>
 </div> -->
-<div class="qualification__data">
+<div class="qualification__data title-no-counter" >
     <div></div>
     <div>
         <span class="qualification__rounder"></span>
@@ -50,7 +51,7 @@
         </div>
     </div>
 </div>
-<div class="qualification__data">
+<div class="qualification__data title-no-counter">
     <div>
         <h3 class="qualification__title">天津一中</h3>
         <span class="qualification__subtitle">理科</span>
@@ -64,7 +65,7 @@
         <span class="qualification__line"></span>
     </div>
 </div>
-<div class="qualification__data">
+<div class="qualification__data title-no-counter">
     <div></div>
     <div>
         <span class="qualification__rounder"></span>
@@ -79,7 +80,7 @@
         </div>
     </div>
 </div>
-<div class="qualification__data">
+<div class="qualification__data title-no-counter">
     <div>
         <h3 class="qualification__title">新东方北美</h3>
         <span class="qualification__subtitle">国际学科讲师</span>
@@ -94,7 +95,7 @@
     </div>
 </div>
 
-<div class="qualification__data">
+<div class="qualification__data title-no-counter">
     <div></div>
     <div>
         <span class="qualification__rounder"></span>
@@ -109,7 +110,7 @@
         </div>
     </div>
 </div>
-<div class="qualification__data">
+<div class="qualification__data title-no-counter">
     <div>
         <h3 class="qualification__title">腾讯北京</h3>
         <span class="qualification__subtitle">云计算开发</span>
@@ -124,7 +125,7 @@
     </div>
 </div>
 
-<div class="qualification__data">
+<div class="qualification__data title-no-counter">
     <div></div>
     <div>
         <span class="qualification__rounder"></span>
